@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 
-test('Calendar test', async ({ page }) => {
+test('Calendar Calendar test', async ({ page }) => {
     
     const monthNumber = "6";
     const date = "15";

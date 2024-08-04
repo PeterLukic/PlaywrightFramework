@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Aug 03 10:50:21 CEST 2024","Sat Aug 03 10:50:31 CEST 2024","9221","chromium","ClientAppPageObjectArray.spec.js","","","","@Web Test customer from test-base",""

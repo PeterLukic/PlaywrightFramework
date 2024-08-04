@@ -14,6 +14,7 @@ test('client app 1', async ({ page }) => {
 });
 
 
+
 test('client app 2', async ({ page }) => {
   const prodctName = "ADIDAS ORIGINAL";
   const products = page.locator(".card-body");
@@ -70,5 +71,6 @@ test('client app 2', async ({ page }) => {
   }
   const orderIdDetails = await page.locator(".col-text").textContent();
   expect(orderId.includes(orderIdDetails)).toBeTruthy();
+  
 
 });

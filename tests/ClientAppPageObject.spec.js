@@ -3,7 +3,7 @@ const { count } = require('console');
 const { PageLogin } = require('../pageobjects/PageLogin');
 const { PageDashboard } = require('../pageobjects/PageDashboard');
 const { PageManager } = require('../pageobjects/PageManager');
-const dataset = JSON.parse(JSON.stringify(require('./utils/testData.json')));
+const dataset = JSON.parse(JSON.stringify(require('../utils/testData.json')));
 
 
 test('client app 1', async ({ page }) => {
@@ -185,6 +185,38 @@ test('client app 5', async ({ page }) => {
   expect(orderId.includes(await pageOrdersHistory.getOrderId())).toBeTruthy();
 
 });
+
+
+//npx playwright test --grep "@WebTest" --run with parameter
+//npm run webTests - run from scripts
+test('test login page', {tag: '@WebTest',}, async ({ page })  => {
+
+  const pageManager = new PageManager(page);
+
+  const pageLogin = pageManager.getPageLogin();
+  await pageLogin.goTo();
+  await pageLogin.validLogin(dataset.email, dataset.password);
+  const pageDashboard = pageManager.getPageDashboard();
+  await pageDashboard.searchProductAddCart(dataset.productName);
+  await pageDashboard.navigateToCart();
+
+  const pageCart = pageManager.getPageCart();
+  await pageCart.VerifyProductIsDisplayed(dataset.productName);
+  await pageCart.Checkout();
+
+  const pageOrdersReview = pageManager.getPageOrdersReview();
+  await pageOrdersReview.searchCountryAndSelect("ind", "India");
+  const orderId = await pageOrdersReview.SubmitAndGetOrderId();
+  console.log(orderId);
+  await pageDashboard.navigateToOrders();
+
+  const pageOrdersHistory = pageManager.getPageOrdersHistory();
+  await pageOrdersHistory.searchOrderAndSelect(orderId);
+  expect(orderId.includes(await pageOrdersHistory.getOrderId())).toBeTruthy();
+
+});
+
+
 
 
 
