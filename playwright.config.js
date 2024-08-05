@@ -31,7 +31,7 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -43,8 +43,8 @@ module.exports = defineConfig({
       //...devices['Desktop Chrome'],
       browserName: "chromium", 
       headless : false,
-      trace : "on",
-      //trace : "retain-on-failure",
+      //trace : "on",
+      trace : "retain-on-failure",
       //screenshot : "on"
       screenshot : "only-on-failure",
       deviceScaleFactor: undefined,

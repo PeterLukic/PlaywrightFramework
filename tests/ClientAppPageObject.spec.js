@@ -186,10 +186,18 @@ test('client app 5', async ({ page }) => {
 
 });
 
-
 //npx playwright test --grep "@WebTest" --run with parameter
 //npm run webTests - run from scripts
-test('test login page', {tag: '@WebTest',}, async ({ page })  => {
+
+//https://www.npmjs.com/package/allure-playwright
+//npx playwright test --grep "@WebTest" --reporter=line,allure-playwright -- generate with alurre report
+// npx playwright test  --reporter=line,allure-playwright  
+//allure generate ./allure-results --clean
+//allure generate ./allure-results --clean -- generate report folder
+//allure open ./allure-report --open report
+
+//npm run WebTests  -- run from script
+test('client app 6 with tag', {tag: '@WebTest'}, async ({ page })  => {
 
   const pageManager = new PageManager(page);
 
@@ -215,8 +223,6 @@ test('test login page', {tag: '@WebTest',}, async ({ page })  => {
   expect(orderId.includes(await pageOrdersHistory.getOrderId())).toBeTruthy();
 
 });
-
-
 
 
 

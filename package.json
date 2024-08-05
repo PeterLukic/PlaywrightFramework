@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webTests" : "npx playwright test --grep @webTest",
-    "apiTests" : "npx playwright test --grep @ApiTest"
+    "AllTest": "npx playwright test",
+    "WebTests": "npx playwright test --grep \"WebTest\"",
+    "ApiTests": "npx playwright test --grep  \"ApiTest\""
+
   },
   "keywords": [],
   "author": "",

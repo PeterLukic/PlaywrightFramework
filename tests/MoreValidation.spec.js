@@ -6,15 +6,11 @@ const { test, expect } = require('@playwright/test');
 //test.describe.configure({mode:"serial"});
 //If one test will be failed then other won't be executed 
 
-//test('@smoke Popup validation 1 ', async ({ page }) --if you want to tag test case 
-//npx playwright test --grep @smoke
-
 //https://www.npmjs.com/package/allure-playwright
+//npm install -g allure-commandline --save-dev
 //npx playwright test --grep @smoke --reporter=line,allure-playwright -- generate with alurre report
 //allure generate ./allure-results --clean -- generate report folder
 //allure open ./allure-report --open report
-
-
 test('Popup validation 1 ', async ({ page }) => {
 
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');

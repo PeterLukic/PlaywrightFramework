@@ -1,7 +1,7 @@
 const { test,expect } = require('@playwright/test');
  
  
-test('@QW Security test request intercept', async ({ page }) => {
+test('Security test request intercept', {tag: '@ApiTest'}, async ({ page }) => {
  
     //login and reach orders page
     await page.goto("https://rahulshettyacademy.com/client");

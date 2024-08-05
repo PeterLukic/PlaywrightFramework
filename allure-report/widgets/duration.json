@@ -1,1 +1,1 @@
-[{"uid":"6d26f5ef58b874ae","name":"@Web Test customer from test-base","time":{"start":1722675021869,"stop":1722675031090,"duration":9221},"status":"passed","severity":"normal"}]
+[{"uid":"7d55993463e25f6","name":"client app 6 with tag","time":{"start":1722867118440,"stop":1722867127913,"duration":9473},"status":"passed","severity":"normal"},{"uid":"37c55609d423797e","name":"@Web Test customer from test-base","time":{"start":1722675021869,"stop":1722675031090,"duration":9221},"status":"passed","severity":"normal"}]

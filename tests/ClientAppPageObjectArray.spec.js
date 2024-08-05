@@ -1,14 +1,13 @@
 const { test, expect } = require('@playwright/test');
 const { PageManager } = require('../pageobjects/PageManager');
 const dataset = JSON.parse(JSON.stringify(require('../utils/multipleTestData.json')));
-const {customtest} = require('../utils/test-base');
+const {customtest} = require('..//utils/test-base');
 
 
 
 for (const data of dataset) {
 
-
-    test(`@Web Client App login for ${data.productName}`, async ({ page }) => {
+    test(`Client App login for ${data.productName}`, async ({ page }) => {
 
         const pageManager = new PageManager(page);
 
@@ -37,8 +36,7 @@ for (const data of dataset) {
 
 }
 
-customtest("Web Test customer test from test-base", async ({ page, testDataForOrder }) => {
-
+customtest("Test customer from test-base", async ({ page, testDataForOrder }) => {
 
     const pageManager = new PageManager(page);
 
@@ -64,5 +62,4 @@ customtest("Web Test customer test from test-base", async ({ page, testDataForOr
     expect(orderId.includes(await pageOrdersHistory.getOrderId())).toBeTruthy();
 
 });
-
 
