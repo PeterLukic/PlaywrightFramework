@@ -1,5 +1,7 @@
 {
      "email" : "peter.lukic@gmail.com",
      "password": "12345",
-     "productName" :"ADIDAS ORIGINAL"
+     "productName" :"ADIDAS ORIGINAL",
+     "contiUserName" : "username",
+     "contiPassword": "password"
 }
