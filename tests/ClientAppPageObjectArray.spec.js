@@ -1,13 +1,13 @@
 const { test, expect } = require('@playwright/test');
 const { PageManager } = require('../pageobjects/PageManager');
 const dataset = JSON.parse(JSON.stringify(require('../utils/multipleTestData.json')));
-const {customtest} = require('..//utils/test-base');
+const {customtest} = require('../utils/test-base');
 
 
 
 for (const data of dataset) {
 
-    test(`Client App login for ${data.productName}`, async ({ page }) => {
+    test(`@Webs Client App login for ${data.productName}`, async ({ page }) => {
 
         const pageManager = new PageManager(page);
 

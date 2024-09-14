@@ -178,8 +178,8 @@ test('client app 5', async ({ page }) => {
   await pageOrdersReview.searchCountryAndSelect("ind", "India");
   const orderId = await pageOrdersReview.SubmitAndGetOrderId();
   console.log(orderId);
+  
   await pageDashboard.navigateToOrders();
-
   const pageOrdersHistory = pageManager.getPageOrdersHistory();
   await pageOrdersHistory.searchOrderAndSelect(orderId);
   expect(orderId.includes(await pageOrdersHistory.getOrderId())).toBeTruthy();
@@ -190,13 +190,12 @@ test('client app 5', async ({ page }) => {
 //npm run webTests - run from scripts
 
 //https://www.npmjs.com/package/allure-playwright
-//npx playwright test --grep "@WebTest" --reporter=line,allure-playwright -- generate with alurre report
+//npx playwright test --grep @smoke --reporter=line,allure-playwright -- generate with alurre report
 // npx playwright test  --reporter=line,allure-playwright  
-//allure generate ./allure-results --clean
 //allure generate ./allure-results --clean -- generate report folder
 //allure open ./allure-report --open report
 
-//npm run WebTests  -- run from script
+//npm run WebTests  run from script
 test('client app 6 with tag', {tag: '@WebTest'}, async ({ page })  => {
 
   const pageManager = new PageManager(page);
