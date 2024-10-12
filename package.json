@@ -7,7 +7,7 @@
     "AllTest": "npx playwright test",
     "WebTests": "npx playwright test --grep \"WebTest\"",
     "ApiTests": "npx playwright test --grep  \"ApiTest\"",
-    "CucumberRegresion" : "npx cucumber-js --tags '@Regresion' --retry 1 --exit --format html:cucumber-report.html"
+    "CucumberRegresion": "npx cucumber-js --tags '@Regresion' --retry 1 --exit --format html:cucumber-report.html"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,8 @@
   "devDependencies": {
     "@playwright/test": "^1.44.1",
     "@types/node": "^20.14.2",
-    "allure-playwright": "^3.0.0-beta.7"
+    "allure-playwright": "^3.0.0-beta.7",
+    "cucumber": "^6.0.7"
   },
   "dependencies": {
     "@cucumber/cucumber": "^11.0.0",
