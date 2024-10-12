@@ -1,7 +1,6 @@
 const { When, Then, Given } = require('@cucumber/cucumber');
-const { PageManager } = require('../../pageobjects/PageManager');
 const { expect } = require('@playwright/test');
-const playwright = require('@playwright/test');
+
 
 Given('Login to Ecommerce application with {string} and {string}', { timeout: 100 * 1000 }, async function (username, password) {
     const products = this.page.locator(".card-body");
