@@ -28,6 +28,8 @@ class PageCart {
         return this.page.locator("h3:has-text('" + productName + "')");
     }
 
+    
+
 }
 
 module.exports = {PageCart};
