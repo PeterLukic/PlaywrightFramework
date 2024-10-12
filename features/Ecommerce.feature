@@ -1,5 +1,10 @@
 Feature: Ecommerce validations
 
+  @test
+  Scenario: Pacing the Order
+    Given Login to Ecommerce application with "peter.lukic@gmail.com" and "123456"
+    When Add "ADIDAS ORIGINAL" to Cart
+
   @Regresion
   Scenario: Pacing the Order
     Given Login to Ecommerce application with "peter.lukic@gmail.com" and "12345"

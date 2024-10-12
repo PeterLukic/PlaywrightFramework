@@ -1,9 +1,17 @@
 
 const { PageManager } = require('../../pageobjects/PageManager');
 const playwright = require('@playwright/test');
-const { Before, After, Status, BeforeStep, AfterStep} = require('@cucumber/cucumber');
+const { Before, After, Status, BeforeAll, AftereEach } = require('@cucumber/cucumber');
+const fs = require('fs-extra');
 const path = require('path');
+const screenshotDir = path.join(__dirname, '..', 'screenshots');
 
+
+
+BeforeAll(async () => {
+    // Ensure the screenshots directory exists
+    fs.ensureDirSync(screenshotDir);
+})
 
 Before(async function () {
 
@@ -14,19 +22,19 @@ Before(async function () {
 
 });
 
-BeforeStep(function () {
 
-});
+After(async function (scenario) {
 
-AfterStep(async function ({ result }) {
+    if (scenario.result.status === Status.FAILED) {
+        // Create a unique name for the screenshot based on the test name and current time
+        const screenshotPath = `${screenshotDir}/${scenario.pickle.name.replace(/\s+/g, '_')}_${Date.now()}.png`;
 
-    if (result.status === Status.FAILED)
-    {
-        await this.page.screenshot({path: 'screenshot.png'});
+        // Take a screenshot
+        await this.page.screenshot({ path: screenshotPath });
+        console.log(`Screenshot saved at ${screenshotPath}`);
+
+        // Attach the screenshot to the report
+        const screenshotBuffer = await fs.readFile(screenshotPath);
+        this.attach(screenshotBuffer, 'image/png');
     }
-
-});
-
-After(function () {
-    console.log("Closing ...");
 });
