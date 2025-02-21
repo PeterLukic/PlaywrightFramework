@@ -15,13 +15,10 @@ BeforeAll(async () => {
 
 Before(async function () {
 
-    const browser = await playwright.chromium.launch({ headless: false, args: ["--start-maximized"], });
+    const browser = await playwright.chromium.launch({ headless: false, args: ["--start-maximized"] });
     const context = await browser.newContext({ viewport: null });
     this.page = await context.newPage();
     this.pageManager = new PageManager(this.page);
-
-    // Automatically maximize the browser
-
 
 });
 
