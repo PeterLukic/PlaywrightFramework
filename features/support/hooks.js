@@ -1,7 +1,7 @@
 
 const { PageManager } = require('../../pageobjects/PageManager');
 const playwright = require('@playwright/test');
-const { Before, After, Status, BeforeAll, AftereEach } = require('@cucumber/cucumber');
+const { Before, After, Status, BeforeAll } = require('@cucumber/cucumber');
 const fs = require('fs-extra');
 const path = require('path');
 const screenshotDir = path.join(__dirname, '..', 'screenshots');
@@ -15,10 +15,13 @@ BeforeAll(async () => {
 
 Before(async function () {
 
-    const browser = await playwright.chromium.launch({ headless: false });
-    const context = await browser.newContext();
+    const browser = await playwright.chromium.launch({ headless: false, args: ["--start-maximized"], });
+    const context = await browser.newContext({ viewport: null });
     this.page = await context.newPage();
     this.pageManager = new PageManager(this.page);
+
+    // Automatically maximize the browser
+
 
 });
 
